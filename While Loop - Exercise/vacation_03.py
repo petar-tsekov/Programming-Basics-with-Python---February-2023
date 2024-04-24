@@ -22,7 +22,7 @@ while True:
             print(total_days)
             break
     if action == "save":
-        days_spend -= 1
+        days_spend = 0
         total_days += 1
 
         current_money += money_spend_save
