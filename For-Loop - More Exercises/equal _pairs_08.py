@@ -1,12 +1,19 @@
-coupels_qty = int(input())
+n = int(input())
 
-couples_equels = 0
-couples_diff = 0
+previous_pair_sum = 0
+pair_difference = 0
+max_difference = 0
+for i in range(n):
+    pair_sum = int(input()) + int(input())
+    if i == 0:
+        previous_pair_sum = pair_sum
+    if pair_sum != previous_pair_sum:
+        pair_difference = abs(pair_sum - previous_pair_sum)
+        previous_pair_sum = pair_sum
+    if pair_difference > max_difference:
+        max_difference = pair_difference
 
-for couples in range(coupels_qty):
-    couple_a = int(input())
-    couple_b = int(input())
-
-    if couple_a == couple_b:
-        
-
+if max_difference == 0:
+    print(f"Yes, value={pair_sum}")
+else:
+    print(f"No, maxdiff={max_difference}")
