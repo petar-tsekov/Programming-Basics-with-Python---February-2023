@@ -1,0 +1,29 @@
+vaucher_entered = int(input())
+product = input()
+ticket_qty = 0
+product_qty = 0
+while product != "End":
+    current_sum = 0
+    if len(product) > 8:
+        current_sum = ord(product[0]) + ord(product[1])
+
+    else:
+        current_sum = ord(product[0])
+
+    if current_sum <= vaucher_entered:
+        if len(product) > 8:
+            ticket_qty += 1
+            vaucher_entered -= current_sum
+        elif len(product) < 8:
+            product_qty +=1
+            vaucher_entered -= current_sum
+    else:
+        print(f"{ticket_qty}")
+        print(f"{product_qty}")
+        break
+
+    product = input()
+
+else:
+    print(f"{ticket_qty}")
+    print(f"{product_qty}")
